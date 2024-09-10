@@ -2,9 +2,8 @@
     <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div class="flex lg:flex-1">
             <a href="#" class="-m-1.5 p-1.5">
-                <span class="sr-only">Your Company</span>
-                <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                    alt="">
+                <span class="sr-only">GoBlog</span>
+                <img class="h-10 w-auto" src="{{ Vite::asset('resources/images/logo.svg') }}" alt="goblog">
             </a>
         </div>
         <div class="flex lg:hidden">
@@ -23,11 +22,13 @@
             </x-navbar.nav-link>
             <x-navbar.nav-link href="/about" :active="request()->is('about')">About
             </x-navbar.nav-link>
+            <x-navbar.nav-link href="/blogs" :active="request()->is('blogs')">Blogs
+            </x-navbar.nav-link>
             <x-navbar.nav-link href="/pricing" :active="request()->is('pricing')">Pricing
             </x-navbar.nav-link>
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Log in <span
+            <a href="/login" class="text-sm font-semibold leading-6 text-gray-900">Log in <span
                     aria-hidden="true">&rarr;</span></a>
         </div>
     </nav>
@@ -40,13 +41,13 @@
             <div class="flex items-center justify-between">
                 <a href="#" class="-m-1.5 p-1.5">
                     <span class="sr-only">Your Company</span>
-                    <img class="h-8 w-auto"
-                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="">
+                    <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                        alt="">
                 </a>
                 <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
                     <span class="sr-only">Close menu</span>
-                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" aria-hidden="true">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                        aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
