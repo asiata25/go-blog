@@ -27,9 +27,19 @@
             <x-navbar.nav-link href="/pricing" :active="request()->is('pricing')">Pricing
             </x-navbar.nav-link>
         </div>
+
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="/login" class="text-sm font-semibold leading-6 text-gray-900">Log in <span
-                    aria-hidden="true">&rarr;</span></a>
+            @guest
+                <a href="/login" class="text-sm font-semibold leading-6 text-gray-900">Log in <span
+                        aria-hidden="true">&rarr;</span></a>
+            @endguest
+            @auth
+                <form action="/logout" method="post">
+                    @csrf
+                    <button type="submit" class="text-sm font-semibold leading-6 text-gray-900">Log Out <span
+                            aria-hidden="true">&nearr;</span></button>
+                </form>
+            @endauth
         </div>
     </nav>
     <!-- Mobile menu, show/hide based on menu open state. -->
@@ -65,9 +75,11 @@
                             class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Company</a>
                     </div>
                     <div class="py-6">
-                        <a href="#"
-                            class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log
-                            in</a>
+                        @guest
+                            <a href="/login"
+                                class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log
+                                in</a>
+                        @endguest
                     </div>
                 </div>
             </div>
